@@ -1,1 +1,3 @@
 # semi_surpervised
+与监督学习相比，半监督融合了有label的data和无label的data一同训练模型。因为，在实际情况中，我们很难获得大量的有label的data，但是却能获得大量无label的data。而无label的data也存在着有效的信息能够帮助我们在数据量少的情况下找到理想的function。在这里，我采用了半监督学习中的low-density separation assumption来挖掘无label的data的信息。对于给定的image，我们希望模型能够给出一个“驼峰型”的probability distribution。在“驼峰型”的probability distribution中，某个label的概率较高，而其它label的概率偏低。因此，我们使用了无label的datad的熵来正则化模型的参数。单元函数的熵如图所示，从中我们可知，当预测概率趋于驼峰分布时，无label的data的熵会减少；而当预测概率区域均匀分布时，无label的data的熵会增加。  
+在这里，我们使用了猫狗数据集和resnet18进行了两组对照试验--半监督和监督。分组分别包含了三次实验，每次实验的unlabel_data比例为0.3，0.5和0.7。它们的的学习曲线和正确率分别如下图所示。
