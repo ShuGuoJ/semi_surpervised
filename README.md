@@ -8,11 +8,9 @@
 从上图可知，无论是半监督还是监督，两者的模型的学习曲线和准确率都很相近。在理论上，由于半监督的dataset包含了监督的dataset，所以半监督模型的性能要大于或等于监督模型的性能。在unlabel_ratio为0.5的实验中，半监督的模型的准确率比监督的模型高1.%左右。而在其它两个对比实验中，两者则相近。除了比较两者的学习曲线和准确率，我们还从样本的熵以及预测probability的分布来比较两者的差异。  
 （在这里，我们选择了unlabel_ratio=0.5的训练模型。前为半监督模型，后为监督模型。）  
 样本熵  
-![image](image/semi_surpervised_entropy.jpg)
-![image](image/surpervised_entropy.jpg)
+![image](image/semi_surpervised_entropy.jpg)![image](image/surpervised_entropy.jpg)  
 预测的probability distribution  
-![image](image/semi_surpervised_label.jpg)
-![image](image/surpervised_label.jpg)  
+![image](image/semi_surpervised_label.jpg)![image](image/surpervised_label.jpg)  
 在随机抽选的30个样本的熵的分布情况来看，半监督模型整体的样本熵较低，而监督模型的整体熵则偏高。这说明了对于给定的image,半监督模型能够很好地生成一个“驼峰型”的probability distribution。这在下面的样本probability distribution中也很好地得到验证。  
 此外，我还使用了grad-cam来可视化模型的感兴趣区域。  
 ![image](image/semi_surpervised_heatmap.jpg)
